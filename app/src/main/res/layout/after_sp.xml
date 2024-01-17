@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    android:padding="16dp">
+    <TextView
+        android:id="@+id/verify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:text="An email has been sent to your gmail. Open the link to verify your account."
+        android:textSize="20sp"
+        android:gravity="center"/>
+    <Button
+        android:id="@+id/back_to_login"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/verify"
+        android:text="Back to Login"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"/>
+
+</RelativeLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "907254304761",
+    "project_id": "login-45438",
+    "storage_bucket": "login-45438.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907254304761:android:1815f8a5d19ef8ec727728",
+        "android_client_info": {
+          "package_name": "com.example.zenchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4StPnuIYxlib3LbxRlvOKgJOSyfU4hQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
