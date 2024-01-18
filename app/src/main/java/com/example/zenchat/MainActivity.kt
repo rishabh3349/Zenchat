@@ -60,12 +60,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    /*override fun onStart() {
+    override fun onStart() {
         super.onStart()
 
         if(firebaseAuth.currentUser != null){
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, OnLogin::class.java)
             startActivity(intent)
         }
-    }*/
+    }
 }
