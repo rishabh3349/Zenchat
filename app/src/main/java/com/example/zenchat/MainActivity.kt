@@ -3,11 +3,9 @@ package com.example.zenchat
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View.OnClickListener
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
@@ -50,11 +48,12 @@ class MainActivity : AppCompatActivity() {
                 else{
                     firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            val intent = Intent(this, Login::class.java)
+                            val intent = Intent(this, OnLogin::class.java)
+                            finish()
                             startActivity(intent)
                         }
                         else {
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "User doesnot exist", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

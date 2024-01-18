@@ -7,10 +7,13 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class SignUp : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var mDbRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +56,9 @@ class SignUp : AppCompatActivity() {
                                     if (it.isSuccessful) {
                                         firebaseAuth.currentUser?.sendEmailVerification()
                                             ?.addOnCompleteListener{
+                                                addUserToDatabase(name,email,firebaseAuth.currentUser?.uid!!)
                                                 val intent = Intent(this, After_SP::class.java)
+                                                finish()
                                                 startActivity(intent)
                                             }
                                     }
@@ -67,5 +72,9 @@ class SignUp : AppCompatActivity() {
                 }
             }
         }
+    }
+    private fun addUserToDatabase(name:String,email:String,uid:String){
+        mDbRef=FirebaseDatabase.getInstance().getReference()
+        mDbRef.child("user").child(uid).setValue(User(name,email,uid))
     }
 }

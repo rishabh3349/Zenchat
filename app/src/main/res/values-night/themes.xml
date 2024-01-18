@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Zenchat" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowBackground">@color/background</item>
+        <item name="colorPrimary">@color/blue</item>
     </style>
 
     <style name="Theme.Zenchat" parent="Base.Theme.Zenchat" />
