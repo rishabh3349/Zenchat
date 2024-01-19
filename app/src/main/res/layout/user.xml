@@ -4,18 +4,23 @@
     android:layout_height="wrap_content">
     <TextView
         android:id="@+id/user_name"
+        android:background="@color/textBack"
         android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="avani"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/blue"
-        android:layout_marginLeft="10dp"/>
+        android:layout_width="500dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:text="Avani"
+        android:textSize="25sp"
+        android:textAlignment="textStart"
+        android:drawableLeft="@drawable/user_image"
+        android:drawablePadding="20dp"
+        android:textColor="@color/chatName"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
     <View
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:layout_below="@id/user_name"
         android:background="@drawable/round_button"/>
 </RelativeLayout>

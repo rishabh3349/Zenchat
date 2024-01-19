@@ -6,4 +6,5 @@
     <color name="login">#A1AEB1</color>
     <color name="blue">#00c2ff</color>
     <color name="textBack">#ecede8</color>
+    <color name="chatName">#474747</color>
 </resources>

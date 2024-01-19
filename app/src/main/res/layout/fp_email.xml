@@ -24,7 +24,7 @@
         android:hint="Enter your Email"
         android:background="@drawable/rounded"
         android:textSize="20sp"
-        android:gravity="center"/>
+        android:padding="10dp"/>
     <Button
         android:id="@+id/only_email"
         android:layout_width="170dp"

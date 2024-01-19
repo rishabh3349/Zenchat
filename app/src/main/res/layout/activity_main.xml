@@ -34,7 +34,7 @@
         android:background="@drawable/rounded"
         android:drawableLeft="@drawable/e1"
         android:drawablePadding="20dp"
-        android:hint="Email Id" />
+        android:hint="Email Id"/>
 
     <EditText
         android:id="@+id/editTextPassword"

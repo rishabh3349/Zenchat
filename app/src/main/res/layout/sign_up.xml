@@ -29,7 +29,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/create"
         android:hint="Enter your Name"
-        android:gravity="center"
+        android:padding="10dp"
         android:layout_marginTop="80dp"/>
     <EditText
         android:id="@+id/email"
@@ -39,7 +39,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/name"
         android:hint="Enter your Email"
-        android:gravity="center"
+        android:padding="10dp"
         android:layout_marginTop="18dp"/>
     <EditText
         android:id="@+id/password"
@@ -51,7 +51,7 @@
         android:hint="Create Password"
         android:inputType="textPassword"
         android:ems="15"
-        android:gravity="center"
+        android:padding="10dp"
         android:layout_marginTop="18dp"/>
     <EditText
         android:id="@+id/confirm_password"
@@ -63,7 +63,7 @@
         android:ems="15"
         android:layout_below="@id/password"
         android:hint="Re-enter Password"
-        android:gravity="center"
+        android:padding="10dp"
         android:layout_marginTop="18dp"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/register"
