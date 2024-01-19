@@ -1,8 +1,6 @@
 package com.example.zenchat
 
 
-
-import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
@@ -15,7 +13,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.getValue
+import com.google.firebase.messaging.FirebaseMessaging
 
 class ChatActivity : AppCompatActivity() {
 
@@ -24,40 +22,41 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var sendButton: ImageView
     private lateinit var messageAdapter: MessageAdapter
     private lateinit var messageList: ArrayList<Message>
-    private lateinit var mDbRef:DatabaseReference
+    private lateinit var mDbRef: DatabaseReference
+    private lateinit var mFirebaseMessaging: FirebaseMessaging
 
-    var receiverRoom:String?=null
-    var senderRoom:String?=null
+    var receiverRoom: String? = null
+    var senderRoom: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
 
-        val name=intent.getStringExtra("name")
-        val receiverUid=intent.getStringExtra("uid")
-        val senderUid=FirebaseAuth.getInstance().currentUser?.uid
-        mDbRef=FirebaseDatabase.getInstance().getReference()
+        val name = intent.getStringExtra("name")
+        val receiverUid = intent.getStringExtra("uid")
+        val senderUid = FirebaseAuth.getInstance().currentUser?.uid
+        mDbRef = FirebaseDatabase.getInstance().getReference()
 
-        senderRoom=receiverUid+senderUid
-        receiverRoom=senderUid+receiverUid
+        senderRoom = receiverUid + senderUid
+        receiverRoom = senderUid + receiverUid
 
-        supportActionBar?.title=name
+        supportActionBar?.title = name
 
-        chatRecyclerView= findViewById(R.id.chatRecyclerView)
-        messageBox=findViewById(R.id.messageBox)
-        sendButton=findViewById(R.id.sendButton)
-        messageList=ArrayList()
-        messageAdapter=MessageAdapter(this,messageList)
+        chatRecyclerView = findViewById(R.id.chatRecyclerView)
+        messageBox = findViewById(R.id.messageBox)
+        sendButton = findViewById(R.id.sendButton)
+        messageList = ArrayList()
+        messageAdapter = MessageAdapter(this, messageList)
 
-        chatRecyclerView.layoutManager=LinearLayoutManager(this)
-        chatRecyclerView.adapter=messageAdapter
+        chatRecyclerView.layoutManager = LinearLayoutManager(this)
+        chatRecyclerView.adapter = messageAdapter
 
         mDbRef.child("chats").child(senderRoom!!).child("messages")
-            .addValueEventListener(object:ValueEventListener{
+            .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     messageList.clear()
-                    for(postSnapshot in snapshot.children){
+                    for (postSnapshot in snapshot.children) {
 
-                        val message=postSnapshot.getValue(Message::class.java)
+                        val message = postSnapshot.getValue(Message::class.java)
                         messageList.add(message!!)
 
                     }

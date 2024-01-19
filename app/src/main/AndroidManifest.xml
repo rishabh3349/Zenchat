@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Zenchat"
         tools:targetApi="31">
+
+
         <activity
             android:name=".ChatActivity"
             android:exported="false" />
@@ -28,6 +30,7 @@
         <activity android:name=".email_FP"></activity>
         <activity android:name=".ResetPass"></activity>
         <activity android:name=".OnLogin"></activity>
-    </application>
+        
+            </application>
 
 </manifest>
