@@ -50,7 +50,7 @@
         android:hint="Password"
         android:layout_below="@id/editTextUsername"
         android:layout_marginTop="18dp"/>
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/buttonLogin"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
         android:layout_marginTop="50dp"
         android:textSize="18sp"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/textViewForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
@@ -75,7 +75,7 @@
         android:textSize="12sp"
         android:text="Forgot Password?" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/newUser"

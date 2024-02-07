@@ -24,7 +24,6 @@ class MessageAdapter(val context: Context,val messageList:ArrayList<Message>) : 
             return SentViewHolder(view)
         }
     }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentMessage=messageList[position]
         if(holder.javaClass==SentViewHolder::class.java){
