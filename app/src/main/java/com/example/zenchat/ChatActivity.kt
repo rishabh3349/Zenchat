@@ -21,7 +21,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var messageBox: EditText
     private lateinit var sendButton: ImageView
     private lateinit var messageAdapter: MessageAdapter
-    private lateinit var messageList: ArrayList<Message>
+    private lateinit var messageList:ArrayList<Message>
     private lateinit var mDbRef: DatabaseReference
     private lateinit var mFirebaseMessaging: FirebaseMessaging
 
