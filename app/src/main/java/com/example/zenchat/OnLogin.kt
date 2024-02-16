@@ -50,12 +50,9 @@ class OnLogin:AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
 
-            override fun onCancelled(error: DatabaseError) {
-
-            }
+            override fun onCancelled(error: DatabaseError) {}
 
         })
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
