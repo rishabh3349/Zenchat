@@ -19,7 +19,7 @@
 <p align="center">
 
 
-<img src="https://github.com/rishabh3349/Zenchat/assets/116977210/13ea20bd-3a0b-4a2b-97d0-29a32af2dc5e">
+<img src="https://github.com/rishabh3349/Zenchat/assets/116977210/f05fd64e-0ded-4407-b536-0a0afc42fb3b">
 
 
 ## If you liked the project don't forget to star 🌟 and fork 🍽 the project.
