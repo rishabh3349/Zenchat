@@ -2,7 +2,7 @@
 # Zenchat
 <p align="center">
 
-<img src="https://github.com/rishabh3349/Zenchat/assets/116977210/961a00eb-9174-43e6-a8f5-bc84bfb65b48" width="700">
+<img src="https://github.com/rishabh3349/Zenchat/assets/116977210/a769538f-3e43-49a0-9090-62d8475a0f9c" width="700">
 
 #### Zenchat is a chatting app made with integration of firebase for login and signup purposes. SignUp is verified by a sending a mail on registered email.
 
@@ -19,7 +19,7 @@
 <p align="center">
 
 
-<img src="https://github.com/rishabh3349/Zenchat/assets/116977210/13ea20bd-3a0b-4a2b-97d0-29a32af2dc5e">
+<img src="https://github.com/rishabh3349/Zenchat/assets/116977210/f05fd64e-0ded-4407-b536-0a0afc42fb3b">
 
 
 ## If you liked the project don't forget to star 🌟 and fork 🍽 the project.
