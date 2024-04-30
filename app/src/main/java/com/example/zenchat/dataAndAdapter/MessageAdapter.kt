@@ -1,4 +1,4 @@
-package com.example.zenchat
+package com.example.zenchat.dataAndAdapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.zenchat.R
 import com.google.firebase.auth.FirebaseAuth
 
 class MessageAdapter(val context: Context,val messageList:ArrayList<Message>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -26,7 +27,7 @@ class MessageAdapter(val context: Context,val messageList:ArrayList<Message>) : 
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentMessage=messageList[position]
-        if(holder.javaClass==SentViewHolder::class.java){
+        if(holder.javaClass== SentViewHolder::class.java){
             val viewHolder= holder as SentViewHolder
             holder.sentMessage.text=currentMessage.message
         }

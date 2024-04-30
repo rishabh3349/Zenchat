@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/back"
     android:padding="16dp">
     <ImageView
@@ -32,7 +31,7 @@
         android:padding="7dp"
         android:layout_marginTop="80dp"
         android:background="@drawable/rounded"
-        android:drawableLeft="@drawable/e1"
+        android:drawableLeft="@drawable/ic_mail"
         android:drawablePadding="20dp"
         android:hint="Email Id"/>
 
@@ -44,8 +43,8 @@
         android:layout_centerHorizontal="true"
         android:inputType="textPassword"
         android:ems="15"
-        android:padding="5dp"
-        android:drawableLeft="@drawable/e2"
+        android:padding="7.5dp"
+        android:drawableLeft="@drawable/ic_pass"
         android:drawablePadding="15dp"
         android:hint="Password"
         android:layout_below="@id/editTextUsername"
@@ -61,30 +60,40 @@
         android:layout_below="@id/editTextPassword"
         android:layout_marginTop="50dp"
         android:textSize="18sp"/>
-
-    <Button
-        android:id="@+id/textViewForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:background="@android:color/transparent"
-        android:layout_below="@id/editTextPassword"
-        android:textColor="@color/blue"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="195dp"
-        android:layout_marginTop="-2dp"
-        android:textSize="12sp"
-        android:text="Forgot Password?" />
-
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/newUser"
-        android:text="New User? Sign Up"
-        android:textColor="@color/blue"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp"
         android:gravity="center"
-        android:background="@android:color/transparent"
-        android:textSize="16sp"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp">
+
+        <Button
+            android:id="@+id/newUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New User? Sign Up"
+            android:textColor="@color/blue"
+            android:background="@android:color/transparent"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="|"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="16sp"
+            android:textColor="@color/blue"/>
+
+        <Button
+            android:id="@+id/textViewForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:textColor="@color/blue"
+            android:background="@android:color/transparent"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
 
 </RelativeLayout>

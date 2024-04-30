@@ -1,9 +1,10 @@
-package com.example.zenchat
+package com.example.zenchat.signUp_LogIn
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.zenchat.R
 
 class After_SP: AppCompatActivity() {
 

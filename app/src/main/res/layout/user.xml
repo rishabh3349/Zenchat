@@ -2,25 +2,27 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/user_pic"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="12.50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_person"
+        android:layout_marginLeft="7.5dp"/>
     <TextView
         android:id="@+id/user_name"
-        android:background="@color/textBack"
-        android:layout_marginTop="5dp"
-        android:layout_width="500dp"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        android:text="Avani"
-        android:textSize="25sp"
-        android:textAlignment="textStart"
-        android:drawableLeft="@drawable/user_image"
-        android:drawablePadding="20dp"
-        android:textColor="@color/chatName"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"/>
-    <View
-        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/user_pic"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="40dp"
+        android:text="Rishabh Sharma"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="12.5dp"
+        android:textSize="20sp"
+        android:textAlignment="textStart"
+        android:textColor="@color/chatName"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
         android:layout_below="@id/user_name"
-        android:background="@drawable/round_button"/>
+        android:background="#DADADA"/>
 </RelativeLayout>

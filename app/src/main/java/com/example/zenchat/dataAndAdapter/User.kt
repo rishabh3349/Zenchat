@@ -1,4 +1,4 @@
-package com.example.zenchat
+package com.example.zenchat.dataAndAdapter
 
 class User {
     var name:String?=null

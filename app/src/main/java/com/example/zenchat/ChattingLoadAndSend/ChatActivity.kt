@@ -1,4 +1,4 @@
-package com.example.zenchat
+package com.example.zenchat.ChattingLoadAndSend
 
 
 import android.os.Bundle
@@ -7,6 +7,9 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.zenchat.R
+import com.example.zenchat.dataAndAdapter.Message
+import com.example.zenchat.dataAndAdapter.MessageAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -21,9 +24,8 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var messageBox: EditText
     private lateinit var sendButton: ImageView
     private lateinit var messageAdapter: MessageAdapter
-    private lateinit var messageList:ArrayList<Message>
+    private lateinit var messageList: ArrayList<Message>
     private lateinit var mDbRef: DatabaseReference
-    private lateinit var mFirebaseMessaging: FirebaseMessaging
 
     var receiverRoom: String? = null
     var senderRoom: String? = null

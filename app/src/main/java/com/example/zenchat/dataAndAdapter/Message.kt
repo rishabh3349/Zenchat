@@ -1,4 +1,4 @@
-package com.example.zenchat
+package com.example.zenchat.dataAndAdapter
 
 class Message {
     var message:String?=null

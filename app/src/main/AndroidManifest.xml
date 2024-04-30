@@ -13,10 +13,10 @@
 
 
         <activity
-            android:name=".ChatActivity"
+            android:name=".ChattingLoadAndSend.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".signUp_LogIn.MainActivity"
             android:theme="@style/Theme.Zenchat"
             android:exported="true">
             <intent-filter>
@@ -25,11 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUp"></activity>
-        <activity android:name=".After_SP"></activity>
-        <activity android:name=".email_FP"></activity>
-        <activity android:name=".ResetPass"></activity>
-        <activity android:name=".OnLogin"></activity>
+        <activity android:name=".signUp_LogIn.SignUp"></activity>
+        <activity android:name=".signUp_LogIn.After_SP"></activity>
+        <activity android:name=".signUp_LogIn.email_FP"></activity>
+        <activity android:name=".signUp_LogIn.ResetPass"></activity>
+        <activity android:name=".user_list.OnLogin"></activity>
         
             </application>
 

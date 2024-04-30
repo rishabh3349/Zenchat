@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.Theme.Zenchat" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="android:autofilledHighlight">@android:color/transparent</item>
+    </style>
+</resources>

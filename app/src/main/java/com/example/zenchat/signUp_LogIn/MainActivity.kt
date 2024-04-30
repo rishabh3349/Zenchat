@@ -1,4 +1,4 @@
-package com.example.zenchat
+package com.example.zenchat.signUp_LogIn
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.zenchat.user_list.OnLogin
+import com.example.zenchat.R
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {

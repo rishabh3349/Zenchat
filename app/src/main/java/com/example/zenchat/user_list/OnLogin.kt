@@ -1,4 +1,4 @@
-package com.example.zenchat
+package com.example.zenchat.user_list
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,13 +7,16 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.zenchat.R
+import com.example.zenchat.dataAndAdapter.User
+import com.example.zenchat.dataAndAdapter.UserAdapter
+import com.example.zenchat.signUp_LogIn.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.coroutines.NonCancellable.start
 
 class OnLogin:AppCompatActivity() {
 
@@ -31,7 +34,7 @@ class OnLogin:AppCompatActivity() {
         mDbRef=FirebaseDatabase.getInstance().getReference()
 
         userList= ArrayList()
-        adapter=UserAdapter(this,userList)
+        adapter= UserAdapter(this,userList)
 
         userRecyclerView=findViewById(R.id.user_list_rv)
 
@@ -61,9 +64,9 @@ class OnLogin:AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId==R.id.logout){
+        if(item.itemId== R.id.logout){
             firebaseAuth.signOut()
-            val intent= Intent(this@OnLogin,MainActivity::class.java)
+            val intent= Intent(this@OnLogin, MainActivity::class.java)
             startActivity(intent)
             finish()
             return true
