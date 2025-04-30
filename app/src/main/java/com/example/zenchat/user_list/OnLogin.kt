@@ -4,6 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.ProgressBar
+import android.window.OnBackInvokedDispatcher
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +25,7 @@ import com.google.firebase.database.ValueEventListener
 class OnLogin:AppCompatActivity() {
 
     private lateinit var userRecyclerView: RecyclerView
+    private lateinit var progressBar: ProgressBar
     private lateinit var userList: ArrayList<User>
     private lateinit var adapter: UserAdapter
     private lateinit var firebaseAuth: FirebaseAuth
@@ -29,7 +34,7 @@ class OnLogin:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.on_login)
         //supportActionBar?.hide()
-
+        progressBar=findViewById(R.id.progressBar)
         firebaseAuth=FirebaseAuth.getInstance()
         mDbRef=FirebaseDatabase.getInstance().getReference()
 
@@ -50,6 +55,7 @@ class OnLogin:AppCompatActivity() {
                         userList.add(currentUser!!)
                     }
                 }
+                progressBar.visibility=View.GONE
                 adapter.notifyDataSetChanged()
             }
 
@@ -72,5 +78,17 @@ class OnLogin:AppCompatActivity() {
             return true
         }
         return true
+    }
+
+    override fun onBackPressed() {
+        AlertDialog.Builder(this)
+            .setMessage("Are you sure you want to exit?")
+            .setCancelable(false)
+            .setPositiveButton("Yes") { _, _ ->
+                finishAffinity()
+                super.onBackPressed()
+            }
+            .setNegativeButton("No", null)
+            .show()
     }
 }

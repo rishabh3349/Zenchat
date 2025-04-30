@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChattingLoadAndSend.ChatActivity">
+    tools:context=".ChattingLoadAndSend.ChatActivity"
+    android:background="@drawable/chat_background">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
@@ -12,30 +13,58 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/linearLayout"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:indeterminateTint="@color/blue"/>
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:padding="8dp"
+        android:background="@color/white"
         android:orientation="horizontal"
-        android:weightSum="100">
+        android:gravity="center_vertical">
+
         <EditText
             android:id="@+id/messageBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="90"
-            android:layout_marginLeft="10dp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
             android:hint="Message"
-            android:padding="15dp"
-            android:background="@drawable/rounded"/>
+            android:padding="12dp"
+            android:background="@drawable/bg_edittext_whatsapp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:inputType="textMultiLine"
+            android:maxLines="4"
+            android:overScrollMode="always" />
+        <ImageView
+            android:id="@+id/imageButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_image"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:contentDescription="Send"
+            app:tint="@color/blue" />
         <ImageView
             android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="12.5"
-            android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_send" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_mic"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:contentDescription="Send"
+            app:tint="@color/blue" />
     </LinearLayout>
 
 </RelativeLayout>

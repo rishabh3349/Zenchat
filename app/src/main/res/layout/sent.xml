@@ -11,7 +11,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/text_view">
+        android:background="@drawable/sent_item">
 
         <TextView
             android:id="@+id/text_message_sent"
@@ -19,7 +19,14 @@
             android:layout_height="wrap_content"
             android:text="this is check1"
             android:textSize="18sp"
+            android:visibility="gone"
             android:textColor="@color/black"
+            android:padding="10dp"/>
+        <ImageView
+            android:id="@+id/image_message_sent"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:visibility="gone"
             android:padding="10dp"/>
 
 

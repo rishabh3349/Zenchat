@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/back"
     android:padding="16dp">
     <ImageView
@@ -55,11 +56,21 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Login"
+        android:visibility="visible"
         android:textColor="@color/white"
         android:background="@drawable/round_button"
         android:layout_below="@id/editTextPassword"
         android:layout_marginTop="50dp"
         android:textSize="18sp"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:indeterminateTint="@color/blue"
+        android:layout_below="@id/editTextPassword"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,7 +85,7 @@
             android:text="New User? Sign Up"
             android:textColor="@color/blue"
             android:background="@android:color/transparent"
-            android:textSize="16sp"/>
+            android:textSize="14.5sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,7 +103,7 @@
             android:text="Forgot Password?"
             android:textColor="@color/blue"
             android:background="@android:color/transparent"
-            android:textSize="16sp"/>
+            android:textSize="14.5sp"/>
     </LinearLayout>
 
 

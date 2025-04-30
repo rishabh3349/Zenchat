@@ -13,17 +13,13 @@ import com.example.zenchat.R
 class UserAdapter(val context:Context,val userList:ArrayList<User>):
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val view:View=LayoutInflater.from(context).inflate(R.layout.user,parent,false)
         return UserViewHolder(view)
     }
-
     override fun getItemCount(): Int {
         return userList.size
     }
-
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val currentUser= userList[position]
         holder.user_name.text=currentUser.name
