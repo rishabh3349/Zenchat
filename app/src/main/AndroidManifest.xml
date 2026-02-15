@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <application
+        android:name=".ZenchatApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,10 +14,10 @@
 
 
         <activity
-            android:name=".ChattingLoadAndSend.ChatActivity"
+            android:name=".ui.chat.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".signUp_LogIn.MainActivity"
+            android:name=".MainActivity"
             android:theme="@style/Theme.Zenchat"
             android:exported="true">
             <intent-filter>
@@ -29,8 +30,9 @@
         <activity android:name=".signUp_LogIn.After_SP"></activity>
         <activity android:name=".signUp_LogIn.email_FP"></activity>
         <activity android:name=".signUp_LogIn.ResetPass"></activity>
-        <activity android:name=".user_list.OnLogin"></activity>
-        
+        <activity android:name=".ui.home.HomeActivity"></activity>
+        <activity android:name=".ui.Login.LoginActivity"></activity>
+
             </application>
 
 </manifest>

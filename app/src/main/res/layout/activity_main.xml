@@ -1,110 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/back"
-    android:padding="16dp">
-    <ImageView
-        android:id="@+id/logo"
-        android:src="@drawable/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-40dp"/>
-
-    <TextView
-        android:id="@+id/login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/logo"
-        android:text="LOGIN"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="@color/blue"
-        android:textStyle="bold"/>
-
-    <EditText
-        android:id="@+id/editTextUsername"
-        android:layout_width="270dp"
-        android:layout_height="45dp"
-        android:layout_below="@id/login"
-        android:layout_centerHorizontal="true"
-        android:padding="7dp"
-        android:layout_marginTop="80dp"
-        android:background="@drawable/rounded"
-        android:drawableLeft="@drawable/ic_mail"
-        android:drawablePadding="20dp"
-        android:hint="Email Id"/>
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="270dp"
-        android:layout_height="45dp"
-        android:background="@drawable/rounded"
-        android:layout_centerHorizontal="true"
-        android:inputType="textPassword"
-        android:ems="15"
-        android:padding="7.5dp"
-        android:drawableLeft="@drawable/ic_pass"
-        android:drawablePadding="15dp"
-        android:hint="Password"
-        android:layout_below="@id/editTextUsername"
-        android:layout_marginTop="18dp"/>
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Login"
-        android:visibility="visible"
-        android:textColor="@color/white"
-        android:background="@drawable/round_button"
-        android:layout_below="@id/editTextPassword"
-        android:layout_marginTop="50dp"
-        android:textSize="18sp"/>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBarMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:indeterminateTint="@color/blue"
-        android:layout_below="@id/editTextPassword"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp">
-
-        <Button
-            android:id="@+id/newUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New User? Sign Up"
-            android:textColor="@color/blue"
-            android:background="@android:color/transparent"
-            android:textSize="14.5sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="|"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textSize="16sp"
-            android:textColor="@color/blue"/>
-
-        <Button
-            android:id="@+id/textViewForgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Forgot Password?"
-            android:textColor="@color/blue"
-            android:background="@android:color/transparent"
-            android:textSize="14.5sp"/>
-    </LinearLayout>
-
-
-</RelativeLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

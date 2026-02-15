@@ -7,4 +7,5 @@
     <color name="blue">#00c2ff</color>
     <color name="textBack">#ecede8</color>
     <color name="chatName">#474747</color>
+    <color name="gray">#FF000000</color>
 </resources>

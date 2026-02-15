@@ -1,4 +1,4 @@
-package com.example.zenchat.ChattingLoadAndSend
+package com.example.zenchat.ui.chat
 
 import android.Manifest
 import android.app.Activity
@@ -22,11 +22,13 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zenchat.R
-import com.example.zenchat.dataAndAdapter.Message
-import com.example.zenchat.dataAndAdapter.MessageAdapter
-import com.example.zenchat.user_list.OnLogin
+import com.example.zenchat.data.model.Message
+import com.example.zenchat.ui.home.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class ChatActivity : AppCompatActivity() {
 
@@ -35,7 +37,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var messageBox: EditText
     private lateinit var sendButton: ImageView
     private lateinit var imageButton: ImageView
-    private lateinit var messageAdapter: MessageAdapter
+    private lateinit var messageAdapter: ChatMessageAdapter
     private lateinit var messageList: ArrayList<Message>
     private lateinit var mDbRef: DatabaseReference
 
@@ -74,7 +76,7 @@ class ChatActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         messageList = ArrayList()
-        messageAdapter = MessageAdapter(this, messageList)
+        messageAdapter = ChatMessageAdapter(this, messageList)
         chatRecyclerView.layoutManager = LinearLayoutManager(this)
         chatRecyclerView.adapter = messageAdapter
 
@@ -110,7 +112,10 @@ class ChatActivity : AppCompatActivity() {
                     sendButton.setImageResource(R.drawable.ic_mic)
                 }
             } else {
-                val messageObject = Message(message = message, senderId = senderUid)
+                val currentTime = Calendar.getInstance().time
+                val formatter = SimpleDateFormat("hh:mm a", Locale.getDefault())
+                val formattedTime = formatter.format(currentTime)
+                val messageObject = Message(message = message, time = formattedTime , senderId = senderUid)
                 sendMessageToFirebase(messageObject)
                 messageBox.setText("")
             }
@@ -147,7 +152,7 @@ class ChatActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                val intent = Intent(this, OnLogin::class.java)
+                val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 onBackPressed()
                 true
@@ -176,7 +181,10 @@ class ChatActivity : AppCompatActivity() {
                 isListening = false
                 val spokenText = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)?.get(0)
                 spokenText?.let {
-                    val messageObject = Message(it, FirebaseAuth.getInstance().currentUser?.uid)
+                    val currentTime = Calendar.getInstance().time
+                    val formatter = SimpleDateFormat("hh:mm a", Locale.getDefault())
+                    val formattedTime = formatter.format(currentTime)
+                    val messageObject = Message(it, formattedTime ,FirebaseAuth.getInstance().currentUser?.uid)
                     sendMessageToFirebase(messageObject)
                 }
                 sendButton.setImageResource(R.drawable.ic_mic)
@@ -200,7 +208,10 @@ class ChatActivity : AppCompatActivity() {
             val inputStream = contentResolver.openInputStream(imageUri!!)
             val imageBytes = inputStream?.readBytes()
             val base64Image = android.util.Base64.encodeToString(imageBytes, android.util.Base64.DEFAULT)
-            val imageMessage = Message("imageCheckSent|" + base64Image, FirebaseAuth.getInstance().currentUser?.uid)
+            val currentTime = Calendar.getInstance().time
+            val formatter = SimpleDateFormat("hh:mm a", Locale.getDefault())
+            val formattedTime = formatter.format(currentTime)
+            val imageMessage = Message("imageCheckSent|" + base64Image, formattedTime ,FirebaseAuth.getInstance().currentUser?.uid)
             sendMessageToFirebase(imageMessage)
         }
     }

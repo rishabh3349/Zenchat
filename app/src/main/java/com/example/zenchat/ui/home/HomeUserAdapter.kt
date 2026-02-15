@@ -1,4 +1,4 @@
-package com.example.zenchat.dataAndAdapter
+package com.example.zenchat.ui.home
 
 import android.content.Context
 import android.content.Intent
@@ -7,14 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.zenchat.ChattingLoadAndSend.ChatActivity
+import com.example.zenchat.ui.chat.ChatActivity
 import com.example.zenchat.R
+import com.example.zenchat.data.model.User
 
-class UserAdapter(val context:Context,val userList:ArrayList<User>):
-    RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+class HomeUserAdapter(val context:Context, val userList:ArrayList<User>):
+    RecyclerView.Adapter<HomeUserAdapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val view:View=LayoutInflater.from(context).inflate(R.layout.user,parent,false)
+        val view:View=LayoutInflater.from(context).inflate(R.layout.user_row,parent,false)
         return UserViewHolder(view)
     }
     override fun getItemCount(): Int {
