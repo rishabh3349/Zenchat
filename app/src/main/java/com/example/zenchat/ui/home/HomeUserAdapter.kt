@@ -1,38 +1,35 @@
 package com.example.zenchat.ui.home
 
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.example.zenchat.ui.chat.ChatActivity
-import com.example.zenchat.R
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import com.example.zenchat.data.model.User
+import com.example.zenchat.databinding.UserRowBinding
 
-class HomeUserAdapter(val context:Context, val userList:ArrayList<User>):
-    RecyclerView.Adapter<HomeUserAdapter.UserViewHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val view:View=LayoutInflater.from(context).inflate(R.layout.user_row,parent,false)
-        return UserViewHolder(view)
-    }
-    override fun getItemCount(): Int {
-        return userList.size
-    }
-    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        val currentUser= userList[position]
-        holder.user_name.text=currentUser.name
-        holder.itemView.setOnClickListener {
-            val intent = Intent(context, ChatActivity::class.java)
-            intent.putExtra("name",currentUser.name)
-            intent.putExtra("uid",currentUser.uid)
-            context.startActivity(intent)
-        }
-    }
-
-    class UserViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
-        val user_name=itemView.findViewById<TextView>(R.id.user_name)
-    }
+class HomeUserAdapter(private val onUserClick: (User) -> Unit) :
+	ListAdapter<User, HomeItemViewHolder>(DIFF_CALLBACK) {
+	
+	
+	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeItemViewHolder {
+		val layoutInflater = LayoutInflater.from(parent.context)
+		val binding = UserRowBinding.inflate(layoutInflater, parent, false)
+		return HomeItemViewHolder(binding)
+	}
+	
+	
+	override fun onBindViewHolder(holder: HomeItemViewHolder, position: Int) {
+		holder.setUI(getItem(position), onUserClick)
+	}
+	
+	companion object {
+		private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<User>() {
+			override fun areItemsTheSame(oldItem: User, newItem: User) =
+				oldItem.uid == newItem.uid
+			
+			override fun areContentsTheSame(oldItem: User, newItem: User) =
+				oldItem == newItem
+		}
+	}
+	
 }

@@ -27,7 +27,8 @@ class SignUpViewModel @Inject constructor(
 
             _loginState.value = if (result.isSuccess) {
 
-                databaseRepository.addUser(name,email,password)
+                val uid = result.getOrNull()
+                databaseRepository.addUser(uid,name, email)
                 AuthState.Success
 
             } else {

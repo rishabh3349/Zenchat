@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <application
         android:name=".ZenchatApplication"
         android:allowBackup="true"
@@ -15,6 +17,11 @@
 
         <activity
             android:name=".ui.chat.ChatActivity"
+            android:theme="@style/Theme.Zenchat.Chat"
+            android:exported="false" />
+        <activity
+            android:name=".ui.chat.CallActivity"
+            android:theme="@style/Theme.Zenchat.Chat"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -26,12 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signUp_LogIn.SignUp"></activity>
-        <activity android:name=".signUp_LogIn.After_SP"></activity>
-        <activity android:name=".signUp_LogIn.email_FP"></activity>
-        <activity android:name=".signUp_LogIn.ResetPass"></activity>
-        <activity android:name=".ui.home.HomeActivity"></activity>
-        <activity android:name=".ui.Login.LoginActivity"></activity>
+        <activity
+            android:name=".ui.BottomNavActivity"
+            android:theme="@style/Theme.Zenchat" />
+        <activity android:name=".ui.Login.LoginActivity"/>
 
             </application>
 

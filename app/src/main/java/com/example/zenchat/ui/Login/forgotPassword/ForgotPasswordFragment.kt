@@ -1,7 +1,10 @@
 package com.example.zenchat.ui.Login.forgotPassword
 
 import android.os.Bundle
+import android.util.Patterns
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,15 +16,23 @@ import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 @AndroidEntryPoint
-class ForgotPasswordFragment : Fragment(R.layout.fragment_forgot_password) {
+class ForgotPasswordFragment : Fragment() {
 
     private var _binding: FragmentForgotPasswordBinding? = null
     private val binding get() = _binding!!
     private val vm:ForgotPasswordViewModel by viewModels()
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentForgotPasswordBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentForgotPasswordBinding.bind(view)
         performClicks()
         observeAuthState()
     }
@@ -30,14 +41,14 @@ class ForgotPasswordFragment : Fragment(R.layout.fragment_forgot_password) {
             findNavController().popBackStack()
         }
         binding.fp.setOnClickListener {
-            val email = binding.email.text.toString().trim()
+            val email = binding.email.text.toString().trim().lowercase()
 
-            if (email.isNotEmpty() ) {
+            if (email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 vm.fp(email)
             } else {
                 Toast.makeText(
                     requireContext(),
-                    "Please enter valid credentials",
+                    "Please enter a valid email",
                     Toast.LENGTH_LONG
                 ).show()
             }

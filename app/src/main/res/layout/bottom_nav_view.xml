@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:baselineAligned="false"
+    android:clickable="true"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_margin="15dp"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/bottom_nav_background"
+    android:focusable="true"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:elevation="8dp">
+
+    <LinearLayout
+        android:id="@+id/nav_chat"
+        style="@style/BottomNavItem"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/icon_chat"
+            android:src="@drawable/ic_chat"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            style="@style/BottomNavIcon" />
+
+        <TextView
+            android:id="@+id/text_chat"
+            android:text="Chats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BottomNavLabel" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_settings"
+        style="@style/BottomNavItem"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/icon_settings"
+            android:src="@drawable/ic_settings"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            style="@style/BottomNavIcon"
+            app:tint="@color/grey_300" />
+
+        <TextView
+            android:id="@+id/text_settings"
+            android:text="Settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BottomNavLabel" />
+    </LinearLayout>
+</LinearLayout>

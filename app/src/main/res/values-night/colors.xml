@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#121212</color>
+    <color name="black">#FFFFFFFF</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="surface_variant">#2C2C2C</color>
+    <color name="on_surface">#E6E6E6</color>
+    <color name="on_surface_muted">#B0B0B0</color>
+    <color name="divider">#383838</color>
+    <color name="divider_subtle">#14FFFFFF</color>
+    <color name="card_stroke">#33FFFFFF</color>
+
+    <color name="blue">#4DD9FF</color>
+
+    <color name="chatName">#E6E6E6</color>
+    <color name="nav_selected">#FFFFFF</color>
+    <color name="nav_unselected">#A0A0A0</color>
+    <color name="grey_300">#D9D9D9</color>
+    <color name="reverse_grey_300">#767676</color>
+    <color name="bottom_nav_label_inactive">#A0A0A0</color>
+
+    <color name="bottom_nav_active_indicator">#FFC107</color>
+    <color name="bottom_nav_indicator_fill">#664D3300</color>
+
+    <color name="header_gradient_start">#33296279</color>
+    <color name="header_gradient_end">#804A90E2</color>
+    <color name="avatar_gradient_start">#3D6BA8</color>
+    <color name="avatar_gradient_end">#5C4DB3</color>
+
+    <color name="icon_circle_background">#1E2A38</color>
+    <color name="edit_profile_button_background">#2C2C2C</color>
+
+    <color name="bottom_nav_surface">#B31A1A1A</color>
+
+    <color name="message_sent_bubble">#418C4C</color>
+    <color name="input_field_background">#2C2C2C</color>
+    <color name="person_icon_tint">#8FC4E8</color>
+
+    <color name="brand_github">#E6E6E6</color>
+
+    <color name="ic_launcher_background">#121212</color>
+    <color name="grey_300_99_percent">#26FFFFFF</color>
+</resources>

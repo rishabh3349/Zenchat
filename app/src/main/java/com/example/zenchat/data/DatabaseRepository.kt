@@ -13,9 +13,13 @@ class DatabaseRepository @Inject constructor(
     private val databaseReference: DatabaseReference
 ) {
 
-    fun addUser(name:String,email:String,uid:String?){
-        databaseReference.child("user").child(uid!!).setValue(User(name,email,uid)).addOnCompleteListener{
-            Log.d("User Added", "New user added successfully")
+    fun addUser(uid: String? ,name: String, email: String) {
+        if(uid!=null){
+            databaseReference.child("user").child(uid).setValue(User(name, email, uid)).addOnCompleteListener {
+                Log.d("User Added", "New user added successfully")
+            }
+        } else {
+            Log.e("uuid","null")
         }
     }
 

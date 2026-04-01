@@ -1,86 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
 <LinearLayout
     android:id="@+id/signUpLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="28dp"
     android:orientation="vertical"
     android:gravity="top|center_horizontal"
-    android:layout_marginTop="180dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:background="@color/white">
     <TextView
         android:id="@+id/create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Create Account"
         android:gravity="center"
-        android:textSize="30sp"
+        android:textSize="28sp"
         android:textColor="@color/blue"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
     <EditText
         android:id="@+id/name"
-        android:layout_width="270dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="26dp"
         android:background="@drawable/rounded"
-        android:hint="Enter your Name"
-        android:padding="10dp"/>
+        android:hint="Full name"
+        android:paddingHorizontal="14dp"
+        android:maxLines="1" />
     <EditText
         android:id="@+id/email"
-        android:layout_width="270dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="14dp"
         android:background="@drawable/rounded"
-        android:hint="Enter your Email"
-        android:padding="10dp"/>
+        android:hint="Email address"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="14dp"
+        android:maxLines="1" />
     <EditText
         android:id="@+id/password"
-        android:layout_width="270dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="14dp"
         android:background="@drawable/rounded"
         android:hint="Create Password"
         android:inputType="textPassword"
-        android:padding="10dp"/>
+        android:paddingHorizontal="14dp"
+        android:maxLines="1" />
     <EditText
         android:id="@+id/confirm_password"
-        android:layout_width="270dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="14dp"
         android:background="@drawable/rounded"
-        android:hint="Re-enter Password"
+        android:hint="Confirm password"
         android:inputType="textPassword"
-        android:padding="10dp"/>
+        android:paddingHorizontal="14dp"
+        android:maxLines="1" />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/register"
-        android:layout_width="170dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="22dp"
+        android:minHeight="52dp"
         android:text="Sign Up"
         android:textColor="@color/white"
         android:gravity="center"
         android:background="@drawable/round_button"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:textStyle="bold" />
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="26dp"
         android:indeterminateTint="@color/blue"
-        android:visibility="gone"/>
+        android:visibility="gone" />
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
 
     <Button
         android:id="@+id/backToSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="Already an account exist? Sign In"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
+        android:text="Already have an account? Sign in"
         android:textColor="@color/blue"
         android:background="@android:color/transparent"
-        android:textSize="14.5sp"/>
+        android:textAllCaps="false"
+        android:textSize="13sp" />
 
 </LinearLayout>
+</ScrollView>

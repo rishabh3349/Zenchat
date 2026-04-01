@@ -1,32 +1,28 @@
 package com.example.zenchat.ui.chat
 
-import android.content.Context
 import android.graphics.BitmapFactory
 import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.zenchat.R
 import com.example.zenchat.data.model.Message
+import com.example.zenchat.databinding.ReceivedMessageBinding
+import com.example.zenchat.databinding.SentMessageBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class ChatMessageAdapter(val context: Context, val messageList:ArrayList<Message>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ChatMessageAdapter(private val messageList:ArrayList<Message>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val ITEM_RECEIVE=1
     val ITEM_SENT=2
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         if(viewType==1){
-            //receive
-            val view:View=LayoutInflater.from(context).inflate(R.layout.received_message,parent,false)
-            return ReceiveViewHolder(view)
+            val binding = ReceivedMessageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            return ReceiveViewHolder(binding)
         }
         else{
-            //sent
-            val view:View=LayoutInflater.from(context).inflate(R.layout.sent_message,parent,false)
-            return SentViewHolder(view)
+            val binding = SentMessageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            return SentViewHolder(binding)
         }
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -89,15 +85,15 @@ class ChatMessageAdapter(val context: Context, val messageList:ArrayList<Message
         return messageList.size
     }
 
-    class SentViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
-        val sentMessage=itemView.findViewById<TextView>(R.id.text_message_sent)
-        val sentImage=itemView.findViewById<ImageView>(R.id.image_message_sent)
-        var timeStampSent=itemView.findViewById<TextView>(R.id.text_message_time_sent)
+    class SentViewHolder(private val binding: SentMessageBinding) :RecyclerView.ViewHolder(binding.root){
+        val sentMessage=binding.textMessageSent
+        val sentImage=binding.imageMessageSent
+        var timeStampSent=binding.textMessageTimeSent
     }
-    class ReceiveViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
-        val receiveMessage=itemView.findViewById<TextView>(R.id.text_message_receive)
-        val receiveImage=itemView.findViewById<ImageView>(R.id.image_message_receive)
-        val timeStampReceive=itemView.findViewById<TextView>(R.id.text_message_time_receive)
+    class ReceiveViewHolder(private val binding: ReceivedMessageBinding) :RecyclerView.ViewHolder(binding.root){
+        val receiveMessage=binding.textMessageReceive
+        val receiveImage=binding.imageMessageReceive
+        val timeStampReceive=binding.textMessageTimeReceive
 
     }
 }

@@ -1,11 +1,52 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Zenchat" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Base.Theme.Zenchat" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/background</item>
         <item name="colorPrimary">@color/blue</item>
+        <item name="colorSecondary">@color/blue</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="android:autofilledHighlight">@android:color/transparent</item>
     </style>
 
     <style name="Theme.Zenchat" parent="Base.Theme.Zenchat" />
+    <style name="Theme.Zenchat.Chat" parent="Theme.Material3.DayNight">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorSecondary">@color/blue</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+    </style>
+    <style name="BottomNav.Label.Inactive" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="BottomNav.Label.Active" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="App.BottomNav.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/bottom_nav_active_indicator</item>
+        <item name="itemIconTint">@color/pill_icon_color</item>
+        <item name="android:drawable">@drawable/bottom_nav_active_indicator_shape</item>
+    </style>
+    <style name="BottomNavItem">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="BottomNavIcon">
+        <item name="android:layout_width">28dp</item>
+        <item name="android:layout_height">28dp</item>
+    </style>
+
+    <style name="BottomNavLabel">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/nav_unselected</item>
+    </style>
 
 </resources>

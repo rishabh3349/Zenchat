@@ -1,18 +1,21 @@
 package com.example.zenchat.data.model
 
-//class User {
-//    var name:String?=null
-//    var email:String?=null
-//    var uid:String?=null
-//    constructor(){}
-//    constructor(name:String?,email:String?,uid:String?){
-//        this.name=name
-//        this.email=email
-//        this.uid=uid
-//    }
-//}
+import android.os.Parcelable
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class User(
-    var name:String?=null,
-    var email:String?=null,
-    var uid:String?=null
-)
+    @SerializedName("name")
+    @Expose
+    var name: String? = null,
+    
+    @SerializedName("email")
+    @Expose
+    var email: String? = null,
+    
+    @SerializedName("uid", alternate = ["uId", "uID"])
+    @Expose
+    var uid: String? = null,
+) : Parcelable

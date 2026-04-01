@@ -2,10 +2,55 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="background">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F5F7FB</color>
+    <color name="on_surface">#1C1C1C</color>
+    <color name="on_surface_muted">#767676</color>
+    <color name="divider">#E8E8E8</color>
+    <color name="divider_subtle">#14000000</color>
+    <color name="card_stroke">#1400C2FF</color>
+
+    <color name="blue">#00C2FF</color>
     <color name="login">#A1AEB1</color>
-    <color name="blue">#00c2ff</color>
-    <color name="textBack">#ecede8</color>
+    <color name="textBack">#ECEDE8</color>
+
     <color name="chatName">#474747</color>
     <color name="gray">#FF000000</color>
+    <color name="nav_selected">#000000</color>
+    <color name="nav_unselected">#9E9E9E</color>
+    <color name="grey_300">#767676</color>
+    <color name="reverse_grey_300">#D9D9D9</color>
+    <color name="bottom_nav_label_inactive">#757575</color>
+
+    <color name="notification_accent">#F5A623</color>
+    <color name="error">#E53935</color>
+    <color name="bottom_nav_active_indicator">#FFD54F</color>
+    <color name="bottom_nav_indicator_fill">#80FFFFE6</color>
+
+    <color name="header_gradient_start">#2A00C2FF</color>
+    <color name="header_gradient_end">#8A00C2FF</color>
+    <color name="avatar_gradient_start">#4A90E2</color>
+    <color name="avatar_gradient_end">#7B61FF</color>
+
+    <color name="icon_circle_background">#F2F7FF</color>
+    <color name="edit_profile_button_background">#F5F7FB</color>
+
+    <color name="bottom_nav_surface">#B3FFFFFF</color>
+
+    <color name="message_sent_bubble">#D8FCD0</color>
+    <color name="input_field_background">#F0F0F0</color>
+    <color name="person_icon_tint">#0E2E43</color>
+
+    <color name="brand_instagram">#E1306C</color>
+    <color name="brand_linkedin">#0A66C2</color>
+    <color name="brand_github">#FF000000</color>
+
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="launcher_legacy_green">#3DDC84</color>
+    <color name="launcher_grid_stroke">#33FFFFFF</color>
+    <color name="launcher_icon_shadow">#44000000</color>
+    <color name="grey_300_99_percent">#33FFFFFF</color>
 </resources>

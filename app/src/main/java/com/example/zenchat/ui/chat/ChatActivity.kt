@@ -4,6 +4,8 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Configuration
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognitionListener
@@ -11,19 +13,17 @@ import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.zenchat.R
 import com.example.zenchat.data.model.Message
-import com.example.zenchat.ui.home.HomeActivity
+import com.example.zenchat.databinding.ActivityChatBinding
+import com.example.zenchat.ui.BottomNavActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.text.SimpleDateFormat
@@ -32,11 +32,7 @@ import java.util.Locale
 
 class ChatActivity : AppCompatActivity() {
 
-    private lateinit var chatRecyclerView: RecyclerView
-    private lateinit var progressBar: ProgressBar
-    private lateinit var messageBox: EditText
-    private lateinit var sendButton: ImageView
-    private lateinit var imageButton: ImageView
+    private lateinit var binding: ActivityChatBinding
     private lateinit var messageAdapter: ChatMessageAdapter
     private lateinit var messageList: ArrayList<Message>
     private lateinit var mDbRef: DatabaseReference
@@ -55,13 +51,14 @@ class ChatActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chat)
-
-        progressBar = findViewById(R.id.progressBar)
-        chatRecyclerView = findViewById(R.id.chatRecyclerView)
-        messageBox = findViewById(R.id.messageBox)
-        sendButton = findViewById(R.id.sendButton)
-        imageButton = findViewById(R.id.imageButton)
+        binding = ActivityChatBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val isDarkMode =
+            (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
+        binding.root.setBackgroundResource(
+            if (isDarkMode) R.drawable.dark_chat_background else R.drawable.chat_background
+        )
+        supportActionBar?.show()
 
         val name = intent.getStringExtra("name")
         val receiverUid = intent.getStringExtra("uid")
@@ -74,42 +71,50 @@ class ChatActivity : AppCompatActivity() {
         supportActionBar?.title = name
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setBackgroundDrawable(
+            ColorDrawable(
+                ContextCompat.getColor(
+                    this,
+                    if (isDarkMode) R.color.surface else R.color.blue
+                )
+            )
+        )
 
         messageList = ArrayList()
-        messageAdapter = ChatMessageAdapter(this, messageList)
-        chatRecyclerView.layoutManager = LinearLayoutManager(this)
-        chatRecyclerView.adapter = messageAdapter
+        messageAdapter = ChatMessageAdapter(messageList)
+        binding.chatRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.chatRecyclerView.adapter = messageAdapter
 
         requestAudioPermission()
         setupSpeechRecognizer()
 
-        messageBox.addTextChangedListener(object : TextWatcher {
+        binding.messageBox.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                sendButton.setImageResource(
+                binding.sendButton.setImageResource(
                     if (s.isNullOrEmpty()) R.drawable.ic_mic else R.drawable.ic_send
                 )
             }
             override fun afterTextChanged(s: Editable?) {}
         })
 
-        imageButton.setOnClickListener {
+        binding.imageButton.setOnClickListener {
             val pickImage = Intent(Intent.ACTION_PICK)
             pickImage.type = "image/*"
             startActivityForResult(pickImage, IMAGE_PICK_CODE)
         }
 
-        sendButton.setOnClickListener {
-            val message = messageBox.text.trim().toString()
+        binding.sendButton.setOnClickListener {
+            val message = binding.messageBox.text.trim().toString()
             if (message.isEmpty()) {
                 if (!isListening) {
                     isListening = true
                     speechRecognizer.startListening(speechIntent)
-                    sendButton.setImageResource(R.drawable.ic_pause)
+                    binding.sendButton.setImageResource(R.drawable.ic_pause)
                 } else {
                     speechRecognizer.stopListening()
                     isListening = false
-                    sendButton.setImageResource(R.drawable.ic_mic)
+                    binding.sendButton.setImageResource(R.drawable.ic_mic)
                 }
             } else {
                 val currentTime = Calendar.getInstance().time
@@ -117,7 +122,7 @@ class ChatActivity : AppCompatActivity() {
                 val formattedTime = formatter.format(currentTime)
                 val messageObject = Message(message = message, time = formattedTime , senderId = senderUid)
                 sendMessageToFirebase(messageObject)
-                messageBox.setText("")
+                binding.messageBox.setText("")
             }
         }
 
@@ -130,14 +135,19 @@ class ChatActivity : AppCompatActivity() {
                         message?.let { messageList.add(it) }
                     }
                     messageAdapter.notifyDataSetChanged()
-                    chatRecyclerView.scrollToPosition(messageList.size - 1)
-                    progressBar.visibility = View.GONE
+                    binding.chatRecyclerView.scrollToPosition(messageList.size - 1)
+                    binding.progressBar.visibility = View.GONE
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    progressBar.visibility = View.GONE
+                    binding.progressBar.visibility = View.GONE
                 }
             })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.chat_menu, menu)
+        return true
     }
 
     private fun sendMessageToFirebase(message: Message) {
@@ -152,9 +162,20 @@ class ChatActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                val intent = Intent(this, HomeActivity::class.java)
+                val intent = Intent(this, BottomNavActivity::class.java)
                 startActivity(intent)
                 onBackPressed()
+                true
+            }
+            R.id.action_call -> {
+                val receiverUid = intent.getStringExtra("uid")
+                if (!receiverUid.isNullOrBlank()) {
+                    startActivity(
+                        Intent(this, CallActivity::class.java).apply {
+                            putExtra("uid", receiverUid)
+                        }
+                    )
+                }
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -175,7 +196,7 @@ class ChatActivity : AppCompatActivity() {
             override fun onEndOfSpeech() {}
             override fun onError(error: Int) {
                 isListening = false
-                sendButton.setImageResource(R.drawable.ic_mic)
+                binding.sendButton.setImageResource(R.drawable.ic_mic)
             }
             override fun onResults(results: Bundle?) {
                 isListening = false
@@ -187,8 +208,8 @@ class ChatActivity : AppCompatActivity() {
                     val messageObject = Message(it, formattedTime ,FirebaseAuth.getInstance().currentUser?.uid)
                     sendMessageToFirebase(messageObject)
                 }
-                sendButton.setImageResource(R.drawable.ic_mic)
-                sendButton.setImageResource(R.drawable.ic_mic)
+                binding.sendButton.setImageResource(R.drawable.ic_mic)
+                binding.sendButton.setImageResource(R.drawable.ic_mic)
             }
             override fun onPartialResults(partialResults: Bundle?) {}
             override fun onEvent(eventType: Int, params: Bundle?) {}

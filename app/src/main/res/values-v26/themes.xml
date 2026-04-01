@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <style name="Base.Theme.Zenchat" parent="Theme.AppCompat.Light.DarkActionBar">
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.Zenchat" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/background</item>
         <item name="colorPrimary">@color/blue</item>
+        <item name="colorSecondary">@color/blue</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:autofilledHighlight">@android:color/transparent</item>
+    </style>
 
+    <style name="Theme.Zenchat" parent="Base.Theme.Zenchat" />
+    <style name="Theme.Zenchat.Chat" parent="Theme.Material3.DayNight">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorSecondary">@color/blue</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
     </style>
 </resources>
