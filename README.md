@@ -2,7 +2,7 @@
 # Zenchat
 <p align="center">
 
-<img src="https://github.com/rishabh3349/Zenchat/assets/116977210/a769538f-3e43-49a0-9090-62d8475a0f9c" width="700">
+<img src="https://github.com/user-attachments/assets/d66c3a52-ca64-4365-8cd9-173db00ceb2a" width="700">
 
 #### Zenchat is a chatting app made with integration of firebase for login and signup purposes. SignUp is verified by a sending a mail on registered email.
 
@@ -11,15 +11,18 @@
 - Kotlin
 - Retrofit
 - Coroutines
-- FireBase
+- FireBase (Auth, Realtime Database, Cloud Messaging via BoM)
 - ViewModel
+- Hilt (Dagger)
+- DataStore Preferences
+- WebRTC (Calling)
  
 ## 📷 Screen Shots
 
 <p align="center">
 
 
-<img src="https://github.com/rishabh3349/Zenchat/assets/116977210/f05fd64e-0ded-4407-b536-0a0afc42fb3b">
+<img src="https://github.com/user-attachments/assets/a38f553b-63dd-4694-9bf0-e20853bcd97a">
 
 
 ## If you liked the project don't forget to star 🌟 and fork 🍽 the project.
